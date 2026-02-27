@@ -97,7 +97,7 @@ export default function DashboardPage() {
       </div>
 
       {/* Top Metrics Row */}
-      <div className="grid grid-cols-3 sm:grid-cols-6 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3 sm:gap-4">
         {topMetrics.map((m) => (
           <div key={m.label} className="border border-neutral-200 rounded-lg p-3 text-center">
             <div className="text-2xl font-bold text-black">{m.value}</div>
@@ -111,14 +111,14 @@ export default function DashboardPage() {
       <div>
         <h2 className="text-sm font-semibold text-black mb-3 uppercase tracking-wide">Outreach Funnel</h2>
         <div className="border border-neutral-200 rounded-lg overflow-hidden bg-white">
-          <div className="grid grid-cols-8 divide-x divide-neutral-200">
+          <div className="grid grid-cols-4 sm:grid-cols-8 divide-x divide-neutral-200">
             {funnelStages.map((stage) => (
               <button
                 key={stage.stage}
                 onClick={() => router.push(`/dashboard/companies?filter=${stage.filter}`)}
-                className="px-2 py-4 text-center cursor-pointer hover:bg-neutral-50 transition-colors"
+                className="px-1 sm:px-2 py-3 sm:py-4 text-center cursor-pointer hover:bg-neutral-50 transition-colors"
               >
-                <div className="text-2xl font-bold text-black">{stage.count}</div>
+                <div className="text-lg sm:text-2xl font-bold text-black">{stage.count}</div>
                 <div className="text-[10px] text-neutral-600 mt-1 leading-tight">{stage.stage}</div>
                 {stage.rate && <div className="text-[10px] text-neutral-400 mt-0.5">{stage.rate}</div>}
                 {stage.change && <div className="text-[10px] text-black mt-0.5">{stage.change}</div>}
@@ -166,7 +166,8 @@ export default function DashboardPage() {
               </Link>
             </div>
             <div className="border border-neutral-200 rounded-lg overflow-hidden bg-white">
-              <table className="w-full">
+              <div className="overflow-x-auto">
+              <table className="w-full min-w-[600px]">
                 <thead>
                   <tr className="bg-neutral-50 border-b border-neutral-200">
                     <th className="px-4 py-2 text-left text-xs font-semibold text-black">Manager</th>
@@ -202,6 +203,7 @@ export default function DashboardPage() {
                   ))}
                 </tbody>
               </table>
+              </div>
             </div>
           </div>
 
@@ -213,7 +215,7 @@ export default function DashboardPage() {
             </div>
             <div className="border border-neutral-200 rounded-lg overflow-hidden bg-white divide-y divide-neutral-200">
               {dormantAccounts.map((d, idx) => (
-                <div key={idx} className="flex items-center justify-between px-4 py-3 hover:bg-neutral-50 cursor-pointer" onClick={() => router.push("/dashboard/companies")}>
+                <div key={idx} className="flex flex-col sm:flex-row sm:items-center justify-between px-4 py-3 hover:bg-neutral-50 cursor-pointer gap-2" onClick={() => router.push("/dashboard/companies")}>
                   <div>
                     <div className="text-sm font-medium text-black">{d.company}</div>
                     <div className="text-xs text-neutral-500">Last contact: {d.lastContact} | Was active: {d.wasActive}</div>

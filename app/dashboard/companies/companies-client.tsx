@@ -417,9 +417,9 @@ export default function CompaniesClient() {
   return (
     <div className="space-y-4">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-black">Companies (Accounts)</h1>
+          <h1 className="text-xl sm:text-2xl font-bold text-black">Companies (Accounts)</h1>
           <p className="text-sm text-neutral-600 mt-1">
             {filteredCompanies.length} companies {filterParam !== "all" && `(filtered: ${filterParam})`}
           </p>
@@ -465,7 +465,7 @@ export default function CompaniesClient() {
       {/* Companies Table */}
       <div className="border border-neutral-200 rounded-lg overflow-hidden bg-white">
         <div className="overflow-x-auto">
-          <table className="w-full">
+          <table className="w-full min-w-[900px]">
             <thead>
               <tr className="border-b border-neutral-200 bg-neutral-50">
                 <th className="px-4 py-3 text-left text-xs font-semibold text-black uppercase tracking-wide">

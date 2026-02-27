@@ -31,15 +31,15 @@ export default function AuditLogPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-black">Audit Log</h1>
+          <h1 className="text-xl sm:text-2xl font-bold text-black">Audit Log</h1>
           <p className="text-sm text-neutral-600">Complete activity history across the platform</p>
         </div>
       </div>
 
-      <div className="flex items-center gap-4">
-        <div className="relative flex-1 max-w-md">
+      <div className="flex items-center gap-4 w-full">
+        <div className="relative flex-1 w-full sm:max-w-md">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400" />
           <Input
             placeholder="Search activity..."
@@ -50,8 +50,9 @@ export default function AuditLogPage() {
         </div>
       </div>
 
-      <div className="border border-neutral-200 rounded-lg overflow-hidden bg-white">
-        <table className="w-full">
+      <div className="border border-neutral-200 rounded-lg overflow-hidden bg-white relative">
+        <div className="overflow-x-auto">
+        <table className="w-full min-w-[800px]">
           <thead>
             <tr className="border-b border-neutral-200 bg-neutral-50">
               <th className="px-4 py-3 text-left text-xs font-semibold text-black uppercase">Action</th>
@@ -85,6 +86,7 @@ export default function AuditLogPage() {
             ))}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   )

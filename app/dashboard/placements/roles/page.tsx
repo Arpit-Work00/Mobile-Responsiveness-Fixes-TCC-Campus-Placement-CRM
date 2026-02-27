@@ -118,9 +118,9 @@ export default function PlacementRolesPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-black">Roles</h1>
+          <h1 className="text-xl sm:text-2xl font-bold text-black">Roles</h1>
           <p className="text-sm text-neutral-600 mt-1">{roles.length} active roles across companies</p>
         </div>
         <Button size="sm" className="bg-black text-white hover:bg-neutral-800">
@@ -150,7 +150,7 @@ export default function PlacementRolesPage() {
       {/* Roles Table */}
       <div className="border border-neutral-200 rounded-lg overflow-hidden bg-white">
         <div className="overflow-x-auto">
-          <table className="w-full">
+          <table className="w-full min-w-[700px]">
             <thead>
               <tr className="border-b border-neutral-200 bg-neutral-50">
                 <th className="px-4 py-3 text-left text-xs font-semibold text-black uppercase">Role</th>

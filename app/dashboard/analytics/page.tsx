@@ -43,9 +43,9 @@ export default function AnalyticsPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-black">Analytics</h1>
+          <h1 className="text-xl sm:text-2xl font-bold text-black">Analytics</h1>
           <p className="text-sm text-neutral-600">Placement operations performance</p>
         </div>
         <Button variant="outline" className="border-neutral-300 text-black hover:bg-neutral-100 bg-transparent">
@@ -71,8 +71,9 @@ export default function AnalyticsPage() {
       {/* Funnel */}
       <div>
         <h2 className="text-sm font-semibold text-black mb-3 uppercase tracking-wide">Placement Funnel</h2>
-        <div className="border border-neutral-200 rounded-lg overflow-hidden bg-white">
-          <div className="grid grid-cols-8 divide-x divide-neutral-200">
+        <div className="border border-neutral-200 rounded-lg overflow-hidden bg-white relative">
+          <div className="overflow-x-auto">
+          <div className="grid grid-cols-8 divide-x divide-neutral-200 min-w-[800px]">
             {funnelData.map((stage) => (
               <div key={stage.stage} className="px-3 py-4 text-center">
                 <div className="text-2xl font-bold text-black">{stage.count}</div>
@@ -81,6 +82,7 @@ export default function AnalyticsPage() {
               </div>
             ))}
           </div>
+          </div>
         </div>
       </div>
 
@@ -88,8 +90,9 @@ export default function AnalyticsPage() {
         {/* Sector Breakdown */}
         <div>
           <h2 className="text-sm font-semibold text-black mb-3 uppercase tracking-wide">Sector Breakdown</h2>
-          <div className="border border-neutral-200 rounded-lg overflow-hidden bg-white">
-            <table className="w-full">
+          <div className="border border-neutral-200 rounded-lg overflow-hidden bg-white relative">
+            <div className="overflow-x-auto">
+            <table className="w-full min-w-[500px]">
               <thead>
                 <tr className="border-b border-neutral-200 bg-neutral-50">
                   <th className="px-4 py-2 text-left text-xs font-semibold text-black">Sector</th>
@@ -109,14 +112,16 @@ export default function AnalyticsPage() {
                 ))}
               </tbody>
             </table>
+            </div>
           </div>
         </div>
 
         {/* Team Performance */}
         <div>
           <h2 className="text-sm font-semibold text-black mb-3 uppercase tracking-wide">Team Performance</h2>
-          <div className="border border-neutral-200 rounded-lg overflow-hidden bg-white">
-            <table className="w-full">
+          <div className="border border-neutral-200 rounded-lg overflow-hidden bg-white relative">
+            <div className="overflow-x-auto">
+            <table className="w-full min-w-[500px]">
               <thead>
                 <tr className="border-b border-neutral-200 bg-neutral-50">
                   <th className="px-4 py-2 text-left text-xs font-semibold text-black">Member</th>
@@ -138,6 +143,7 @@ export default function AnalyticsPage() {
                 ))}
               </tbody>
             </table>
+            </div>
           </div>
         </div>
       </div>

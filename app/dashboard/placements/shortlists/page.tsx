@@ -97,9 +97,9 @@ export default function PlacementShortlistsPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-black">Shortlists</h1>
+          <h1 className="text-xl sm:text-2xl font-bold text-black">Shortlists</h1>
           <p className="text-sm text-neutral-600 mt-1">Track shortlisted candidates by role</p>
         </div>
         <Button variant="outline" size="sm" className="border-neutral-300 text-black hover:bg-neutral-100 bg-transparent">
@@ -109,7 +109,7 @@ export default function PlacementShortlistsPage() {
       </div>
 
       {/* Stats */}
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-4 gap-3 sm:gap-4">
         <div className="border border-neutral-200 rounded-lg p-4 bg-white">
           <div className="text-2xl font-bold text-black">{stats.totalShortlisted}</div>
           <div className="text-xs text-neutral-600">Total Shortlisted</div>
@@ -129,7 +129,7 @@ export default function PlacementShortlistsPage() {
       </div>
 
       {/* Search and Filter */}
-      <div className="flex items-center gap-3">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3">
         <div className="relative flex-1">
           <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-neutral-400" />
           <Input
@@ -149,7 +149,7 @@ export default function PlacementShortlistsPage() {
       {/* Shortlists Table */}
       <div className="border border-neutral-200 rounded-lg overflow-hidden bg-white">
         <div className="overflow-x-auto">
-          <table className="w-full">
+          <table className="w-full min-w-[800px]">
             <thead>
               <tr className="border-b border-neutral-200 bg-neutral-50">
                 <th className="px-4 py-3 text-left text-xs font-semibold text-black uppercase">Role</th>

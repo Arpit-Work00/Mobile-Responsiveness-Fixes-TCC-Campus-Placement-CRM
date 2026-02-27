@@ -29,9 +29,9 @@ export default function CallsPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-black">Calls</h1>
+          <h1 className="text-xl sm:text-2xl font-bold text-black">Calls</h1>
           <p className="text-sm text-neutral-600">Track all recruiter calls and outcomes</p>
         </div>
         <Button className="bg-black text-white hover:bg-neutral-800">
@@ -40,8 +40,8 @@ export default function CallsPage() {
         </Button>
       </div>
 
-      <div className="flex items-center gap-4">
-        <div className="relative flex-1 max-w-md">
+      <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-4">
+        <div className="relative flex-1 max-w-md w-full">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-neutral-400" />
           <Input
             placeholder="Search calls..."
@@ -53,7 +53,8 @@ export default function CallsPage() {
       </div>
 
       <div className="border border-neutral-200 rounded-lg overflow-hidden bg-white">
-        <table className="w-full">
+        <div className="overflow-x-auto">
+        <table className="w-full min-w-[900px]">
           <thead>
             <tr className="border-b border-neutral-200 bg-neutral-50">
               <th className="px-4 py-3 text-left text-xs font-semibold text-black uppercase">Date & Time</th>
@@ -98,6 +99,7 @@ export default function CallsPage() {
             ))}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   )

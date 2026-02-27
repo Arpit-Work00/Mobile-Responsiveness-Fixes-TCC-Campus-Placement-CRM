@@ -150,9 +150,9 @@ export default function OutreachSequencesPage() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
         <div>
-          <h1 className="text-2xl font-bold text-black">Outreach Sequences</h1>
+          <h1 className="text-xl sm:text-2xl font-bold text-black">Outreach Sequences</h1>
           <p className="text-sm text-neutral-600 mt-1">Email sequences for systematic company outreach</p>
         </div>
         <Button className="bg-black text-white hover:bg-neutral-800">
@@ -163,7 +163,8 @@ export default function OutreachSequencesPage() {
 
       {/* Sequences Table */}
       <div className="border border-neutral-200 rounded-lg overflow-hidden bg-white">
-        <table className="w-full text-sm">
+        <div className="overflow-x-auto">
+        <table className="w-full text-sm min-w-[1000px]">
           <thead className="bg-neutral-50 border-b border-neutral-200">
             <tr>
               <th className="px-4 py-3 text-left text-xs font-semibold text-black uppercase tracking-wide">
@@ -259,6 +260,7 @@ export default function OutreachSequencesPage() {
             })}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   )

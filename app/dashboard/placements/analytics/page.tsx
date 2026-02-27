@@ -50,9 +50,9 @@ export default function PlacementAnalyticsPage() {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-black">Placement Analytics</h1>
+          <h1 className="text-xl sm:text-2xl font-bold text-black">Placement Analytics</h1>
           <p className="text-sm text-neutral-600 mt-1">Final Placements 2024-25 | As of {new Date().toLocaleDateString('en-IN', { day: 'numeric', month: 'short', year: 'numeric' })}</p>
         </div>
         <Button variant="outline" size="sm" className="border-neutral-300 text-black hover:bg-neutral-100 bg-transparent">
@@ -62,7 +62,7 @@ export default function PlacementAnalyticsPage() {
       </div>
 
       {/* Overview Stats */}
-      <div className="grid grid-cols-6 gap-4">
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
         {overviewStats.map((stat, idx) => (
           <div key={idx} className="border border-neutral-200 rounded-lg p-4 bg-white">
             <div className="text-2xl font-bold text-black">{stat.value}</div>
@@ -77,7 +77,7 @@ export default function PlacementAnalyticsPage() {
       {/* Funnel */}
       <div className="border border-neutral-200 rounded-lg p-6 bg-white">
         <h2 className="text-sm font-semibold text-black uppercase tracking-wide mb-4">Placement Funnel</h2>
-        <div className="flex items-center gap-2">
+        <div className="flex items-center gap-2 overflow-x-auto pb-4">
           {funnelData.map((stage, idx) => (
             <div key={idx} className="flex items-center">
               <div className="text-center px-4">
@@ -93,11 +93,12 @@ export default function PlacementAnalyticsPage() {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 gap-6">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
         {/* Company Breakdown */}
         <div className="border border-neutral-200 rounded-lg p-6 bg-white">
           <h2 className="text-sm font-semibold text-black uppercase tracking-wide mb-4">Top Recruiting Companies</h2>
-          <table className="w-full">
+          <div className="overflow-x-auto">
+          <table className="w-full min-w-[500px]">
             <thead>
               <tr className="border-b border-neutral-200">
                 <th className="text-left py-2 text-xs font-semibold text-neutral-600">Company</th>
@@ -118,11 +119,13 @@ export default function PlacementAnalyticsPage() {
             </tbody>
           </table>
         </div>
+        </div>
 
         {/* Function Breakdown */}
         <div className="border border-neutral-200 rounded-lg p-6 bg-white">
           <h2 className="text-sm font-semibold text-black uppercase tracking-wide mb-4">By Function</h2>
-          <table className="w-full">
+          <div className="overflow-x-auto">
+          <table className="w-full min-w-[500px]">
             <thead>
               <tr className="border-b border-neutral-200">
                 <th className="text-left py-2 text-xs font-semibold text-neutral-600">Function</th>
@@ -144,11 +147,13 @@ export default function PlacementAnalyticsPage() {
           </table>
         </div>
       </div>
+      </div>
 
       {/* Year-over-Year Comparison */}
       <div className="border border-neutral-200 rounded-lg p-6 bg-white">
         <h2 className="text-sm font-semibold text-black uppercase tracking-wide mb-4">Year-over-Year Comparison</h2>
-        <table className="w-full">
+        <div className="overflow-x-auto">
+        <table className="w-full min-w-[600px]">
           <thead>
             <tr className="border-b border-neutral-200">
               <th className="text-left py-2 text-xs font-semibold text-neutral-600">Metric</th>
@@ -175,6 +180,7 @@ export default function PlacementAnalyticsPage() {
             ))}
           </tbody>
         </table>
+        </div>
       </div>
     </div>
   )

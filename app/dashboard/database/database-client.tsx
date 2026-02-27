@@ -196,9 +196,9 @@ export default function DatabaseClient() {
 
   return (
     <div className="space-y-6">
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
         <div>
-          <h1 className="text-2xl font-bold text-black">Premium Database & Meeting Requests</h1>
+          <h1 className="text-xl sm:text-2xl font-bold text-black">Premium Database & Meeting Requests</h1>
           <p className="text-sm text-neutral-600 mt-1">
             Verified recruiter contacts with facilitated meeting introductions
           </p>
@@ -244,7 +244,8 @@ export default function DatabaseClient() {
           </div>
 
           <div className="border border-neutral-200 rounded-lg overflow-hidden bg-white">
-            <table className="w-full text-sm">
+            <div className="overflow-x-auto">
+            <table className="w-full text-sm min-w-[700px]">
               <thead className="bg-neutral-50 border-b border-neutral-200">
                 <tr>
                   <th className="px-4 py-3 text-left text-xs font-semibold text-black uppercase">Company</th>
@@ -343,14 +344,16 @@ export default function DatabaseClient() {
                   </tr>
                 ))}
               </tbody>
-            </table>
+            </table>
+            </div>
           </div>
         </TabsContent>
 
         {/* Meeting Requests Tab */}
         <TabsContent value="requests" className="mt-6">
           <div className="border border-neutral-200 rounded-lg overflow-hidden bg-white">
-            <table className="w-full text-sm">
+            <div className="overflow-x-auto">
+            <table className="w-full text-sm min-w-[700px]">
               <thead className="bg-neutral-50 border-b border-neutral-200">
                 <tr>
                   <th className="px-4 py-3 text-left text-xs font-semibold text-black uppercase">Company</th>
@@ -381,7 +384,8 @@ export default function DatabaseClient() {
                   </tr>
                 ))}
               </tbody>
-            </table>
+            </table>
+            </div>
           </div>
         </TabsContent>
       </Tabs>
@@ -389,7 +393,7 @@ export default function DatabaseClient() {
       {/* Meeting Request Modal */}
       {showRequestModal && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
-          <Card className="w-full max-w-lg border border-neutral-200">
+          <Card className="w-full max-w-lg mx-4 sm:mx-0 border border-neutral-200">
             <CardHeader className="border-b border-neutral-200">
               <div className="flex items-center justify-between">
                 <CardTitle className="text-lg font-bold text-black">Request Meeting</CardTitle>
