@@ -130,7 +130,7 @@ export default function DashboardPage() {
 
       <div className="grid lg:grid-cols-3 gap-6">
         {/* Left Column - Tasks + Manager Performance */}
-        <div className="lg:col-span-2 space-y-6">
+        <div className="lg:col-span-2 space-y-6 min-w-0">
           {/* Today Tasks */}
           <div>
             <h2 className="text-sm font-semibold text-black mb-3 uppercase tracking-wide">Today</h2>
